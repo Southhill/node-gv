@@ -7,7 +7,7 @@ const gv = require('./lib')
 ```
 object `gv` have below functions:** clear, size, getKeys, toEmptyList, entitySize, map, del, pop, push, deleteEntity, getEntity, hasKey, addEntity**
 
-##occur problem
+## occur problem
 1. why don't have function by commonjs way?, have below code:
 ```js
 exports.add = function(a, b) {
