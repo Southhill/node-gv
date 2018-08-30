@@ -1,0 +1,9 @@
+# editor
+.vscode
+.history
+
+# log
+*.log
+
+# project
+node_modules
