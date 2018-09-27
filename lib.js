@@ -1,7 +1,17 @@
 let gv = {}
 
-function addEntity(key, val) {
+function _addEntity(key, val) {
     gv[key] = val
+}
+
+function addEntity(obj, val) {
+    if (typeof obj === 'string') {
+        _addEntity(obj, val)
+    } else if (Object.prototype.toString.call(obj).slice(8, -1) === 'Object') {
+        Object.keys(obj).forEach(key => _addEntity(key, obj[key]))                
+    } else {
+        throw new TypeError('first argument request to Object type.')
+    }
 }
 
 function hasKey(key) {

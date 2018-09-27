@@ -1,6 +1,6 @@
 {
-  "name": "gv",
-  "version": "1.0.0",
+  "name": "node-gv",
+  "version": "1.1.0",
   "description": "node global var",
   "main": "lib.js",
   "scripts": {

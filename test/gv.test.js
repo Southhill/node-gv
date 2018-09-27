@@ -34,13 +34,26 @@ describe('entity add, delete', function() {
         expect(gv.getEntity('name')).to.equal('zhangsan')
     })
 
+    it('# add object to add multi prop', function() {
+        const obj = {
+            title: 'multi prop',
+            arrs: [10, 20, 30, 40, 50],
+            temp: {}
+        }   
+        gv.addEntity(obj)
+        expect(gv.hasKey('title')).to.be.true
+        expect(gv.hasKey('arrs')).to.be.true
+        expect(gv.hasKey('temp')).to.be.true
+        expect(gv.getEntity('arrs')).to.eql([10, 20, 30, 40, 50])
+    })
+
     it('# delete entity', function() {
         gv.deleteEntity('name')
         expect(gv.hasKey('name')).to.be.false
     })
 })
 
-describe('entity item', function() {
+describe('entity of array item test', function() {
     before('add testArr', function() {
         gv.addEntity('testArr', [1, 1, 2, 3, 5])
     })
@@ -85,7 +98,9 @@ describe('entity item', function() {
 
 describe('other test', function() {
     it('# gv size', function() {
+        gv.clear()
+        gv.addEntity({a: 1, b: '2', c: [], d: {}})
         const size = gv.size()
-        expect(size).to.equal(2)
+        expect(size).to.equal(4)
     })
 })
