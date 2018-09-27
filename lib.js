@@ -54,6 +54,16 @@ function pop(key) {
     return gv[key].pop()
 }
 
+function shift(key) {
+    handlerWrongArg4Array(key)
+    return gv[key].shift()
+}
+
+function unshift(key, item) {
+    handlerWrongArg4Array(key)
+    return gv[key].unshift(item)
+}
+
 function del(key, idx) {
     handlerWrongArg4Array(key)
     if (typeof idx !== 'number') {
@@ -109,6 +119,8 @@ module.exports = {
     del,
     pop,
     push,
+    shift,
+    unshift,
     deleteEntity,
     getEntity,
     hasKey,

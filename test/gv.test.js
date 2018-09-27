@@ -53,7 +53,7 @@ describe('entity add, delete', function() {
     })
 })
 
-describe('entity of array item test', function() {
+describe('entity of array item methods', function() {
     before('add testArr', function() {
         gv.addEntity('testArr', [1, 1, 2, 3, 5])
     })
@@ -65,6 +65,16 @@ describe('entity of array item test', function() {
 
     it('# item pop', function() {
         gv.pop('testArr')
+        expect(gv.getEntity('testArr')).to.eql([1, 1, 2, 3, 5])
+    })
+
+    it('# item unshift', function() {
+        gv.unshift('testArr', 0)
+        expect(gv.getEntity('testArr')).to.eql([0, 1, 1, 2, 3, 5])
+    })
+
+    it('# item shift', function() {
+        gv.shift('testArr')
         expect(gv.getEntity('testArr')).to.eql([1, 1, 2, 3, 5])
     })
 
