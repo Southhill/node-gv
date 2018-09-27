@@ -10,6 +10,8 @@ function _addEntity(key, val) {
             newVal = val.concat()
         } else if (Object.prototype.toString.call(val).slice(8, -1) === 'Object') {
             newVal = Object.assign({}, val)
+        } else {
+            newVal = val
         }
     }
     gv[key] = newVal
