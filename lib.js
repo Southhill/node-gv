@@ -1,7 +1,18 @@
 let gv = {}
 
 function _addEntity(key, val) {
-    gv[key] = val
+    let newVal = null
+    if (typeof val !== 'object') {
+        newVal = val
+    } else {
+        // 简单的浅拷贝
+        if (Array.isArray(val)) {
+            newVal = val.concat()
+        } else if (Object.prototype.toString.call(val).slice(8, -1) === 'Object') {
+            newVal = Object.assign({}, val)
+        }
+    }
+    gv[key] = newVal
 }
 
 function addEntity(obj, val) {
