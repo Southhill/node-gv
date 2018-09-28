@@ -96,9 +96,10 @@ describe('entity of array item methods', function() {
         expect(gv.entitySize('testArr')).to.equal(4)
     })
 
-    it('# item empty', function() {
-        gv.toEmptyList('testArr')
+    it('# item empty(take all list)', function() {
+        const arr = gv.toEmptyList('testArr')
         expect(gv.getEntity('testArr')).to.eql([])
+        expect(arr).to.eql([1, 1, 4, 9])
     })
 
     after('delete testArr', function() {

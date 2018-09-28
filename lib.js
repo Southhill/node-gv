@@ -69,7 +69,8 @@ function del(key, idx) {
     if (typeof idx !== 'number') {
         throw new TypeError('argument idx expect number type')
     }
-    gv[key].splice(idx < 0 ? (gv[key].length + idx) : idx, 1)
+    const ret = gv[key].splice(idx < 0 ? (gv[key].length + idx) : idx, 1)
+    return ret[0]
 }
 
 function map(key, func) {
@@ -88,7 +89,9 @@ function entitySize(key) {
 
 function toEmptyList(key) {
     handlerWrongArg4Array(key)
-    addEntity(key, [])
+    const ret = gv[key].splice(0, entitySize(key))
+
+    return ret
 }
 
 function getKeys() {
