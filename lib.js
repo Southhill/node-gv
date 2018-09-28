@@ -43,9 +43,9 @@ function deleteEntity(key) {
     delete gv[key]
 }
 
-function push(key, item) {
+function push(key, ...item) {
     handlerWrongArg4Array(key)
-    return gv[key].push(item)
+    return gv[key].push(...item)
 
 }
 
@@ -59,9 +59,9 @@ function shift(key) {
     return gv[key].shift()
 }
 
-function unshift(key, item) {
+function unshift(key, ...item) {
     handlerWrongArg4Array(key)
-    return gv[key].unshift(item)
+    return gv[key].unshift(...item)
 }
 
 function del(key, idx) {
