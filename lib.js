@@ -64,7 +64,7 @@ function unshift(key, ...item) {
     return gv[key].unshift(...item)
 }
 
-function del(key, idx) {
+function delArrayItem(key, idx) {
     handlerWrongArg4Array(key)
     if (typeof idx !== 'number') {
         throw new TypeError('argument idx expect number type')
@@ -119,7 +119,7 @@ module.exports = {
     toEmptyList,
     entitySize,
     map,
-    del,
+    delArrayItem,
     pop,
     push,
     shift,
@@ -128,4 +128,5 @@ module.exports = {
     getEntity,
     hasKey,
     addEntity,
+    del: delArrayItem,
 }

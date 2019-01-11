@@ -5,7 +5,6 @@ const gv = require('../lib')
 // before('clear gv', function() {
 //     gv.clear()
 // })
-
 require('./before')
 
 describe('check gv status', function() {
